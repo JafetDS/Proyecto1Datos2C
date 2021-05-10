@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Server.h"
 #include <string>
-#include <stdlib.h>
 #include <windows.h>
 int main() {
     std::cout << "Hello, World!" << std::endl;

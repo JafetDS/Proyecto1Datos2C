@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/UNIVERSIDAD/Datos2_2021/Proyecto1/Proyecto1Datos2C/Server/Server.h
+iostream
+-
+string
+-
+winsock2.h
+-
+
+C:/UNIVERSIDAD/Datos2_2021/Proyecto1/Proyecto1Datos2C/Server/main.cpp
+iostream
+-
+Server.h
+C:/UNIVERSIDAD/Datos2_2021/Proyecto1/Proyecto1Datos2C/Server/Server.h
+string
+-
+windows.h
+-
+

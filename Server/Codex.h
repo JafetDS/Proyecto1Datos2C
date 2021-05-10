@@ -7,6 +7,12 @@
 
 
 class Codex {
+public:
+    Codex();
+
+    
+
+
 
 };
 
