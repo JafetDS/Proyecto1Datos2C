@@ -27,3 +27,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Resources.qrc
+
+INCLUDEPATH += ..\boost_1_76_0
+
+LIBS += -lws2_32
+
