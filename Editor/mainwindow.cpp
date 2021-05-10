@@ -27,8 +27,5 @@ void MainWindow::on_Run_clicked()
 
     cout<<Spliter::direcVar(CodeText)<<endl;
 
-
-
-
 }
 
