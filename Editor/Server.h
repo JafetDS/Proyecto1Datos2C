@@ -9,15 +9,16 @@ class Server
 {
 public:
 
-    Server();
+    Server(string &loger);
 
     WSADATA WSAData;
-    SOCKET server, client;
-    SOCKADDR_IN serverAddr, clientAddr;
+    SOCKET server;
+    SOCKADDR_IN addr;
     char buffer[512];
+    string* log;
 
     string Recibir();
-    void Enviar(char mensaje);
+    void Enviar(string mensaje);
     void CerrarSocket();
 
 };

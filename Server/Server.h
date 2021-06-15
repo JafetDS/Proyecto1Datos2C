@@ -7,13 +7,17 @@
 #include <iostream>
 #include <string>
 #include <winsock2.h>
+#include <sstream>
 
 using namespace std;
 
 class Server {
 
 public:
+
     Server();
+
+
 
     WSADATA WSAData;
     SOCKET server, client;
@@ -21,7 +25,7 @@ public:
     char buffer[512];
 
     string Recibir();
-    void Enviar(char mensaje);
+    void Enviar(string mensaje);
     void CerrarSocket();
 
 };

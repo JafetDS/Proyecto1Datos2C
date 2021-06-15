@@ -12,12 +12,14 @@ SOURCES += \
     Server.cpp \
     main.cpp \
     mainwindow.cpp \
-    spliter.cpp
+    spliter.cpp \
+    thread.cpp
 
 HEADERS += \
     Server.h \
     mainwindow.h \
-    spliter.h
+    spliter.h \
+    thread.h
 
 FORMS += \
     mainwindow.ui
@@ -33,4 +35,5 @@ RESOURCES += \
 INCLUDEPATH += ..\boost_1_76_0
 
 LIBS += -lws2_32
+
 

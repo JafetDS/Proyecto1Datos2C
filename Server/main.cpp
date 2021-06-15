@@ -1,32 +1,55 @@
 #include <iostream>
+
 #include "Server.h"
 #include "Codex.h"
+#include "Memory"
 #include "Memory.h"
-
 #include <string>
 #include <windows.h>
+using namespace std;
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
     Server *Servidor = new Server();
 
+    Memory *memoria = new Memory();
 
-    char msj;
+   // Codex *codex  = new Codex();
+
+    //codex->CJson("helo");
+
+
+
+
+
+
+    string msj = "akn";
     string Rmsj;
-    while (true) {
+
+    while(true) {
         cout << "Esperando mensaje" << endl;
         Rmsj = Servidor->Recibir();
-        Memory *memoria = new Memory;
-        memoria.insert(Rmsj);
+
+
 
         cout << Rmsj << endl;
-        cout << "Inserta mensaje ";
-        Codex *cod = new Codex();
 
-        msj = cod->decodeType(Rmsj);
+        cout << "Enviar  mensaje" << endl;
 
-        Servidor->Enviar(msj);
-        Sleep(2000);
+        //
+    //    Servidor->CerrarSocket();
+    //    if(Rmsj != ""){
+            msj = memoria->insert(Rmsj);
+
+            cout << msj << endl;
+        cout << "Res  mensaje" << endl;
+            Servidor->Enviar(msj);
+    //    }
+           // Sleep(2000);
+
+
+
     }
+
         return 0;
 }

@@ -8,12 +8,22 @@
 #include <boost/algorithm/string.hpp>
 #include <winsock2.h>
 #include <vector>
+#include <iostream>
 using namespace std;
 
+class Memory;
+
 class Codex {
+
 public:
-    Codex();
-    vector<string> decodeType(string json);
+    Codex(Memory *memo);
+    vector<string>CJson(string json);
+    string type(string);
+    string name(string);
+    string inf(string);
+    string dir(string);
+
+    Memory *memory;
 
 
 

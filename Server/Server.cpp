@@ -26,18 +26,22 @@ Server::Server() {
 
 string Server::Recibir() {
     recv(client, buffer, sizeof(buffer), 0);
-    cout << "El cliente dice: " << buffer << endl;
+ //   cout << "El cliente dice: " << buffer << endl;0
     string buf=buffer;
     memset(buffer, 0, sizeof(buffer));
     return buf;
 }
 
-void Server::Enviar(char mensaje) {
-    this->buffer[0] = mensaje;
+
+void Server::Enviar(string mensaje) {
+    for(int i = 0; i<(int)mensaje.length();i++){
+        this->buffer[i]=mensaje[i];
+    }
     send(client, buffer, sizeof(buffer), 0);
     memset(buffer, 0, sizeof(buffer));
     cout << "Mensaje enviado!" << endl;
 }
+
 
 void Server::CerrarSocket() {
     closesocket(client);

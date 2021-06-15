@@ -1,33 +1,41 @@
 #include "Server.h"
 
-Server::Server() {
+Server::Server(string &loger)     {
+    log = &loger;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     server = socket(AF_INET, SOCK_STREAM, 0);
 
-    serverAddr.sin_addr.s_addr = inet_addr("10.0.0.10");
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(5555);
+    addr.sin_addr.s_addr = inet_addr("172.28.160.1");
+    addr.sin_family=AF_INET;
+    addr.sin_port = htons(5555);
 
-    connect(server, (SOCKADDR *)&serverAddr, sizeof(serverAddr));
+    connect(server, (SOCKADDR *)&addr, sizeof(addr));
     cout << "Connected to server!" << endl;
+    *log = *log + (string)"\n" + "Connected to server!";
 }
+void Server::Enviar(string mensaje)
+{
+    for(int i = 0; i<=(int)mensaje.length();i++){
+        this->buffer[i]=mensaje[i];
+    }
 
-string Server::Recibir() {
-    recv(client, buffer, sizeof(buffer), 0);
-    cout << "El cliente dice: " << buffer << endl;
+    send(server, buffer, sizeof(buffer), 0);
+    cout << "Mensaje enviado!" << endl;
+    *log = *log + (string)"\n" +  "Mensaje enviado!";
+    memset(buffer, 0, sizeof(buffer));
+}
+string Server::Recibir()
+{
+    recv(server, buffer, sizeof(buffer), 0);
+    cout << "El Servidor dice: " << buffer << endl;
+    *log =*log + (string)"\n" +  "Mensaje Recibido ";
     string buf=buffer;
     memset(buffer, 0, sizeof(buffer));
     return buf;
 }
-
-void Server::Enviar(char mensaje) {
-    this->buffer[0] = mensaje;
-    send(client, buffer, sizeof(buffer), 0);
-    memset(buffer, 0, sizeof(buffer));
-    cout << "Mensaje enviado!" << endl;
-}
-
-void Server::CerrarSocket() {
-    closesocket(client);
-    cout << "Socket cerrado, cliente desconectado." << endl;
+void Server::CerrarSocket()
+{
+    closesocket(server);
+    WSACleanup();
+    cout << "Socket cerrado." << endl << endl;
 }
