@@ -1,13 +1,26 @@
-#Descripción del Problema
-Para el presente proyecto se pretende realizar un programa que sea capaz
-de permitir la programación en un pseudo lenguaje llamado C!, el cual está
-basado en el lenguaje de C++, poseerá la mayoría de características de
-este mismo, sin embargo contara con una interfaz propia que permite
-visualizar el manejo de espacios en memoria.
+## 💡 Problem Description
 
-El proyecto consta de 2 partes 
-El Servidor: Donde se procesa el lenguaje y los espacios en memoria
-El Editor: Donde se envia el codigo escrito y se muestra la memoria.
+The goal of this project is to develop a program capable of executing and processing a **pseudo-language called `C!`**, which is based on the **C++** language.  
+This pseudo-language retains most of C++’s characteristics but includes a **custom graphical interface** that allows users to **visualize how memory spaces are managed** during execution.
 
-La comunicacion entre el Servidor y la Interfaz del Editor de codigo 
-se realiza mediante Sockets.
+---
+
+### 🧩 Project Structure
+
+The system is composed of **two main components**:
+
+#### 🖥️ Server
+- Processes the code written in `C!`.
+- Manages and simulates **memory space allocation**.
+- Handles the **internal logic** of the pseudo-language.
+
+#### ✍️ Editor
+- Allows users to **write, send, and execute** source code.
+- Visually displays the **simulated memory**.
+- Communicates with the server via **sockets**.
+
+---
+
+### 🔌 Communication Between Components
+
+The communication between the **Server** and the **Code Editor interface** is handled through **Sockets**, enabling real-time data exchange and execution synchronization.
